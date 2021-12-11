@@ -1,0 +1,7 @@
+node_modules
+webpackconfig.js
+package-lock.json
+package.json
+dist
+task.html
+class.js

@@ -1,0 +1,85 @@
+#sidebar
+{
+
+    width: 18vw !important;
+    height: 94vh !important ;
+
+}
+
+.display
+{
+    width: 81vw !important;
+    background-color: rgb(209, 209, 209);
+}
+
+.input-project
+{
+    outline: none !important;
+
+}
+
+.nav-item
+{
+    cursor: pointer;
+    transition: 600ms;
+}
+
+.nav-item:hover,
+.nav-item:focus
+{
+
+    background-color:rgb(39, 87, 231);
+
+}
+
+.task
+{
+    cursor: pointer;
+    transition: 600ms;
+    background-color:rgb(235, 235, 235);
+}
+
+.task:hover,
+.task:focus
+{
+
+    background-color: rgba(112, 128, 144, 0.13) !important;
+
+}
+
+.project
+{
+    cursor: pointer;
+    transition: 600ms;
+    list-style-type: none;
+    background-color:rgba(211, 211, 211, 0.144) !important;
+    
+}
+
+.project:hover,
+.project:focus
+{
+
+    background-color:rgba(211, 211, 211, 0.411) !important;
+
+}
+
+.description
+{
+    background-color: lightgray !important;
+}
+
+.high
+{
+    background-color: rgba(255, 0, 0, 0.507) !important;
+}
+
+.medium
+{
+    background-color: rgba(0, 128, 0, 0.479) !important;
+}
+
+.low
+{
+    background-color: rgba(255, 255, 0, 0.479) !important;
+}
