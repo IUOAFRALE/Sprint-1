@@ -39,4 +39,20 @@ export default class Store {
         })
         localStorage.setItem('projects', JSON.stringify(projects))
     }
+
+    static removeTasks(taskId) {
+        const projects = Store.getProjects()
+
+        projects.forEach((project) => {
+            if (project.id == localStorage.getItem('activeProjectId')) {
+                project.Tasks.forEach((task, index) =>{
+                    if (task.id == taskId) {
+                        project.Tasks.splice(index, 1)
+                    }
+                })
+            }
+        })
+
+        localStorage.setItem('projects', JSON.stringify(projects))
+    }
 }

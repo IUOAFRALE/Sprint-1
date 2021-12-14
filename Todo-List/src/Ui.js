@@ -26,7 +26,7 @@ export default class UI {
         <div class="ms-auto"> 
             <button class="btn-sm btn-light">
                 <i class="fas fa-pencil-alt"></i></button><button class="btn-sm btn-danger ms-1 delete-project">
-                <input type="hidden" name="id" id="id" value="${project.id}">
+                <input type="hidden" name="id" value="${project.id}">
                 <i class="far fa-trash-alt"></i>
             </button> 
         </div>`
@@ -56,7 +56,8 @@ export default class UI {
                                 <i class="fas fa-pencil-alt"></i>
                             </button>
                             <button class="btn btn-danger ms-1">
-                                <i class="far fa-trash-alt"></i>
+                                <i class="far fa-trash-alt delete-task"></i>
+                                <input type="hidden" name="id" value="${task.id}">
                             </button> 
                         </div>
                     </li>
@@ -131,6 +132,7 @@ export default class UI {
     static deleteProject(el) {
         if (el.classList.contains('delete-project')) {
             el.parentElement.parentElement.remove()
+            location.reload()
         }
     }
 

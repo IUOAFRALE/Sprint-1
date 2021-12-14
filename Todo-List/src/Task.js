@@ -66,3 +66,17 @@ document.querySelector('#task-form').addEventListener('submit', (e) => {
         location.reload()
     }
 })
+
+// delete task
+document.querySelector('#tasks-list').addEventListener('click', (e) => {
+    // // Remove project from UI
+    if (e.target.classList.contains('delete-task')) {
+
+        // // Remove task from UI
+        e.target.parentElement.parentElement.parentElement.nextElementSibling.remove()
+        e.target.parentElement.parentElement.parentElement.remove()
+
+        // Remove task from store
+        Store.removeTasks(e.target.nextElementSibling.value)
+    }
+})
