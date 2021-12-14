@@ -53,7 +53,7 @@ export default class UI {
                         ${task.title} 
                         <div class="ms-auto"> 
                             <button class="btn btn-secondary update-task">
-                            <i class="fas fa-pencil-alt update-task"></i>
+                            <i class="fas fa-pencil-alt "></i>
                             <input type="hidden" name="id" value="${task.id}">
                             </button>
                             <button class="btn btn-danger ms-1">
