@@ -18,11 +18,13 @@ document.getElementById('projects').addEventListener('click', (e) => {
 
     if (e.target.classList.contains('project-name')) {
 
+        location.reload()
         // store selected project id
         localStorage.setItem('activeProjectId', e.target.nextElementSibling.value)
 
         // display tasks in Ui
         UI.displayTasks()
+
     }
 })
 
@@ -40,7 +42,7 @@ document.querySelector('#task-form').addEventListener('submit', (e) => {
     // Get form values
     const title = document.querySelector('#task-title').value
     const description = document.querySelector('#task-description').value
-    const priority = document.querySelector('input[name="priority"]:checked').value;
+    const priority = document.querySelector('input[name="priority"]:checked').value
 
 
 
@@ -60,5 +62,7 @@ document.querySelector('#task-form').addEventListener('submit', (e) => {
         UI.displayTasks(task)
 
         UI.clearTaskFields()
+
+        location.reload()
     }
 })

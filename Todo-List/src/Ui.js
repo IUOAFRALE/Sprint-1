@@ -42,6 +42,8 @@ export default class UI {
             projects.forEach(project => {
                 if (project.id == localStorage.getItem('activeProjectId')) {
 
+                    document.getElementById('active-project-title').innerHTML = project.title
+
                     project.Tasks.forEach(task => {
 
                         const tasksList = document.getElementById('tasks-list')
