@@ -12,6 +12,9 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
     integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous">
+    </script>
 </head>
 
 <body class="bg-secondary">
@@ -78,20 +81,41 @@
 
     <div class="display py-5">
       <div class="projects">
-        <div class="form-group w-100">
-          <form class="d-flex justify-content-center" action="#" method="get" id="task-form">
-            <input class="input-project w-50 me-1 py-1" type="text" name="project-field" id="task-title">
-            <textarea name="" id="task-description" cols="30" rows="10"></textarea>
-            <input type="radio" name="priority" value="high" id="">
-            <input type="radio" name="priority" value="medium" id="">
-            <input type="radio" name="priority" value="low" id="">
-            <input class="btn btn-secondary btn-sm" type="submit" value="Create Task">
+        <div class="form-group w-100 d-flex flex-column justify-content-center">
+          <div class="d-flex justify-content-center" action="#" method="get">
+            <a class="btn btn-secondary new-task" id="new-task" href="#">New Task</a>
+          </div>
+          <form class="task-form p-5 rounded " id="task-form" action="#" method="get" id="task-form">
+            <div class="form-group d-flex flex-column align-items-center mt-5">
+              <h1>Create New Task</h1>
+              <hr class="w-50">
+            </div>
+            <div class="form-group my-3 mt-5">
+              <i class="fas fa-times btn-lg btn-danger close-task-form"></i> <label for="name"></label>
+              <input class="w-100 input-style py-1" type="text" name="taskname" id="task-title" placeholder="Title">
+            </div>
+            <div class="form-group my-3">
+              <label for="description"></label>
+              <textarea class="w-100 input-style py-1" name="description" id="task-description" cols="30" rows="6"
+                placeholder="Description"></textarea>
+            </div>
+
+            <div class="form-group my-3 mt-5 text-center">
+              <input type="radio" name="priority" id="high" value="high">
+              <label for="high">High</label>
+              <input type="radio" name="priority" id="medium" value="medium">
+              <label for="medium">Medium</label>
+              <input type="radio" name="priority" id="low" value="low">
+              <label for="low">Low</label>
+            </div>
+            <div class="form-group my-5 mt-5 d-flex justify-content-center">
+              <input class="btn btn-secondary py-2 px-4 fs-5" type="submit" value="Create">
+            </div>
           </form>
         </div>
         <div class="mx-5 mt-5" id="project-id">
-          <h4 id="active-project-title" class="my-3">All Tasks :</h4>
-          <input type="hidden" name="" id="active-project-id">
-          <ul id="tasks-list"> </ul>
+          <h4 class="my-4 ms-5" id="active-project-title"></h4>
+          <ul id="tasks-list"></ul>
         </div>
       </div>
     </div>
@@ -100,9 +124,8 @@
   </div>
 
   <!-- main-content -->
-
+  <script src="src/script.js"></script>
   <script type="module" src="/src/index.js"></script>
-
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
     integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
     crossorigin="anonymous"></script>
