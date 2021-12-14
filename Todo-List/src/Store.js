@@ -28,4 +28,18 @@ export default class Store {
 
         localStorage.setItem('projects', JSON.stringify(projects))
     }
+
+    static addTask(task, projectId) {
+        const projects = Store.getProjects()
+        projects.forEach(project => {
+            if (project.id == projectId) {
+                let tasks = project.Tasks
+                tasks.push(task)
+                console.log(task)
+                console.log(tasks)
+            }
+        })
+        console.log(projects)
+        localStorage.setItem('projects', JSON.stringify(projects))
+    }
 }

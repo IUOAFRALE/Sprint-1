@@ -42,7 +42,6 @@ document.querySelector('#project-form').addEventListener('submit', (e) => {
 
 document.querySelector('#projects').addEventListener('click', (e) => {
     // // Remove project from UI
-
     if (e.target.classList.contains('delete-project')) {
 
         // Remove project from UI
@@ -50,11 +49,13 @@ document.querySelector('#projects').addEventListener('click', (e) => {
         // Remove project from store
         Store.removeProject(e.target.firstChild.nextElementSibling.value)
 
-        let taskList = document.getElementById('taskList').innerHTML = ''
+        // let taskList = document.getElementById('taskList').innerHTML = ''
     }
-
-
 })
+
+
+
+
 
 
 

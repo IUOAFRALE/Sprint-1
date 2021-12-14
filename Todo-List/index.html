@@ -79,19 +79,18 @@
     <div class="display py-5">
       <div class="projects">
         <div class="form-group w-100">
-          <form class="d-flex justify-content-center" action="#" method="get">
+          <form class="d-flex justify-content-center" action="#" method="get" id="task-form">
             <input class="input-project w-50 me-1 py-1" type="text" name="project-field" id="task-title">
             <textarea name="" id="task-description" cols="30" rows="10"></textarea>
-            <select name="" id="task-priority">
-              <option value="high">High</option>
-              <option value="medium">Medium</option>
-              <option value="low">low</option>
-            </select>
+            <input type="radio" name="priority" value="high" id="">
+            <input type="radio" name="priority" value="medium" id="">
+            <input type="radio" name="priority" value="low" id="">
             <input class="btn btn-secondary btn-sm" type="submit" value="Create Task">
           </form>
         </div>
-        <div class="mx-5 mt-5">
+        <div class="mx-5 mt-5" id="project-id">
           <h4 class="my-3">All Tasks :</h4>
+          <input type="hidden" name="" id="active-project-id">
           <ul id="tasks-list"> </ul>
         </div>
       </div>

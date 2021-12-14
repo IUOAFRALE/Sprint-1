@@ -10,7 +10,6 @@ export default class UI {
 
         projects.forEach((project) => {
             UI.addProjectToList(project)
-            // project.Tasks.forEach((task) => UI.addTaskToList(task))
         })
     }
 
@@ -108,6 +107,9 @@ export default class UI {
         })
     }
 
+    static displayActiveProjectId(projectId){
+        document.getElementById('active-project-id').value = projectId
+    }
 
     static addTaskToList(projectID) {
 
@@ -122,40 +124,11 @@ export default class UI {
         });
     }
 
-    // static addTaskToList(task) {
-    //     const tasksList = document.querySelector('#tasks')
-
-    //     const taskRow = document.createElement('tr')
-
-    //     taskRow.innerHTML = `
-    //     <td>${task.title}</td>
-    //     <td>${task.description}</td>
-    //     <td>${task.priority}</td>
-    //     <td>${task.statue}</td>
-    //     <td><a href="#" class="btn btn-danger btn-sm delete-task">X</a>
-    //     <input type="hidden" name="id" id="id" value="${task.id}">
-    //     </td>`
-
-    //     tasksList.appendChild(taskRow)
-    // }
-
-
     static deleteProject(el) {
         if (el.classList.contains('delete-project')) {
             el.parentElement.parentElement.remove()
         }
     }
-
-    // static showAlert(message, className) {
-    //     const div = document.createElement('div')
-    //     div.className = `alert alert-${className}`
-    //     div.appendChild(document.createTextNode(message))
-    //     const container = document.querySelector('.project-container')
-    //     const form = document.querySelector('#project-form')
-    //     container.insertBefore(div, form)
-
-    //     setTimeout(() => document.querySelector('.alert').remove(), 3000)
-    // }
 
     static clearFields() {
         document.querySelector('#project-title').value = ''
