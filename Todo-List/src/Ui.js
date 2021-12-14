@@ -35,19 +35,17 @@ export default class UI {
     }
 
     // Task
-    static displayTasks(projectID) {
+    static displayTasks() {
+        
+            const projects = Store.getProjects()
 
-        const projects = Store.getProjects()
+            projects.forEach(project => {
+                if (project.id == localStorage.getItem('activeProjectId')) {
 
-        projects.forEach(project => {
-            if (project.id == projectID) {
-                project.Tasks.forEach(task => {
+                    project.Tasks.forEach(task => {
 
-                    const tasksList = document.getElementById('tasks-list')
-
-                    // tasksList.innerHTML = '' 
-
-                    tasksList.innerHTML += `
+                        const tasksList = document.getElementById('tasks-list')
+                        tasksList.innerHTML += `
                     <li class="rounded p-3 pt-4 m-2 d-flex task fs-5 ${task.priority}" data-bs-toggle="collapse" href="#multiCollapseExample${task.id + 1}" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">
                         <i class="fas fa-tasks text-dark p-2"></i>
                         ${task.title} 
@@ -69,9 +67,17 @@ export default class UI {
                           </div>
                         </div>
                     </div>`
-                });
-            }
-        });
+                    });
+                }
+            });
+
+
+    }
+
+    static clearTaskFields(){
+        document.querySelector('#task-title').value = '' 
+        document.querySelector('#task-description').value = ''
+        document.querySelector('input[name="priority"]:checked').value = ''
     }
 
     static displayAllTasks() {
@@ -105,10 +111,6 @@ export default class UI {
                     </div>`
             })
         })
-    }
-
-    static displayActiveProjectId(projectId){
-        document.getElementById('active-project-id').value = projectId
     }
 
     static addTaskToList(projectID) {

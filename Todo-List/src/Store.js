@@ -35,11 +35,8 @@ export default class Store {
             if (project.id == projectId) {
                 let tasks = project.Tasks
                 tasks.push(task)
-                console.log(task)
-                console.log(tasks)
             }
         })
-        console.log(projects)
         localStorage.setItem('projects', JSON.stringify(projects))
     }
 }
