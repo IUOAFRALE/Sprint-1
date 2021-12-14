@@ -80,3 +80,25 @@ document.querySelector('#tasks-list').addEventListener('click', (e) => {
         Store.removeTasks(e.target.nextElementSibling.value)
     }
 })
+
+
+// update task
+document.querySelector('#tasks-list').addEventListener('click', (e) => {
+    // // Remove project from UI
+    if (e.target.classList.contains('update-task')) {
+
+        // display update task form
+        document.querySelector('.update-task-form').style.display = 'block'
+
+        
+
+        // hide update task form
+        document.querySelector('.close-update-task-form').addEventListener('click', () => {
+            document.querySelector('.update-task-form').style.display = 'none'
+        })
+
+        // // Remove task from store
+        // Store.removeTasks(e.target.nextElementSibling.value)
+        console.log(document.querySelector('update-task-form'))
+    }
+})
