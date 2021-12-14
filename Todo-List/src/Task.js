@@ -52,7 +52,6 @@ document.querySelector('#task-form').addEventListener('submit', (e) => {
     } else {
         // Instantiate task
         const task = new Task(title, description, priority)
-        console.log(task)
         const projectId = localStorage.getItem('activeProjectId')
 
         // Add task to store
@@ -96,21 +95,38 @@ document.querySelector('#tasks-list').addEventListener('click', (e) => {
                 project.Tasks.forEach((task, index) => {
                     if (task.id == e.target.nextElementSibling.value) {
 
-                        const title = document.querySelector('#update-task-title').value = task.title
-                        const description = document.querySelector('#update-task-description').value = task.description
+                        document.querySelector('#update-task-title').value = task.title
+                        document.querySelector('#update-task-description').value = task.description
                         const priority = document.querySelectorAll('input[name="update-task-priority"]')
                         priority.forEach((p) => {
                             if (p.value == task.priority) p.checked = true
                         })
 
+                        document.querySelector('#update-task-form').addEventListener('submit', (e) => {
+                            // Prevent actual submit
+                            e.preventDefault()
+
+                            // Get form values
+                            const newTitle = document.querySelector('#update-task-title').value
+                            const newDescription = document.querySelector('#update-task-description').value
+                            const newPriority = document.querySelector('input[name="update-task-priority"]:checked').value
+
+                            // Validate
+                            if (newTitle === '' || newDescription === '' || newPriority === '') {
+                                UI.showAlert('Please fill in all fields', 'danger')
+                            } else {
+                                // Instantiate task
+                                const task = new Task(newTitle, newDescription, newPriority)
+                                project.Tasks[index] = task
+                                localStorage.setItem('projects', JSON.stringify(projects))
+                                // location.reload()
+                                console.log(task)
+                            }
+                        })
+
                     }
                 })
             }
-        })
-
-        // hide update task form
-        document.querySelector('.close-update-task-form').addEventListener('click', () => {
-            document.querySelector('.update-task-form').style.display = 'none'
         })
     }
 })

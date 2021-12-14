@@ -1,5 +1,5 @@
 export default class Store {
-//     // Project
+    //     // Project
     static getProjects() {
         let projects
         if (localStorage.getItem('projects') === null) {
@@ -45,7 +45,7 @@ export default class Store {
 
         projects.forEach((project) => {
             if (project.id == localStorage.getItem('activeProjectId')) {
-                project.Tasks.forEach((task, index) =>{
+                project.Tasks.forEach((task, index) => {
                     if (task.id == taskId) {
                         project.Tasks.splice(index, 1)
                     }
