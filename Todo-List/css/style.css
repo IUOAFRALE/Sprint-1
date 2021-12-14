@@ -80,8 +80,26 @@
     display: none;
 
 }
+.update-task-form
+{
+    position: absolute;
+    top: 18%;
+    left: 34%;
+    background-color: rgba(233, 229, 229, 0.918);
+    width: 50%;
+    height: 70%;
+    display: none;
+    z-index: 99;
+
+}
 
 .close-task-form
+{
+    position:absolute;
+    top: 0%;
+    right: 0%;
+}
+.close-update-task-form
 {
     position:absolute;
     top: 0%;
