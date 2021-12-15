@@ -92,7 +92,9 @@ document.querySelector('#tasks-list').addEventListener('click', (e) => {
         projects.forEach((project) => {
             if (project.id == localStorage.getItem('activeProjectId')) {
 
+                
                 project.Tasks.forEach((task, index) => {
+                    // console.log(e.target.nextElementSibling.value)
                     if (task.id == e.target.nextElementSibling.value) {
 
                         document.querySelector('#update-task-title').value = task.title
@@ -119,8 +121,8 @@ document.querySelector('#tasks-list').addEventListener('click', (e) => {
                                 const task = new Task(newTitle, newDescription, newPriority)
                                 project.Tasks[index] = task
                                 localStorage.setItem('projects', JSON.stringify(projects))
-                                // location.reload()
-                                console.log(task)
+                                location.reload()
+                                // console.log(task)
                             }
                         })
 

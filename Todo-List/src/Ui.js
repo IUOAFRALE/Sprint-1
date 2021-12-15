@@ -52,8 +52,8 @@ export default class UI {
                         <i class="fas fa-tasks text-dark p-2"></i>
                         ${task.title} 
                         <div class="ms-auto"> 
-                            <button class="btn btn-secondary update-task">
-                            <i class="fas fa-pencil-alt "></i>
+                            <button class="btn btn-secondary">
+                            <i class="fas fa-pencil-alt update-task"></i>
                             <input type="hidden" name="id" value="${task.id}">
                             </button>
                             <button class="btn btn-danger ms-1">
@@ -84,51 +84,6 @@ export default class UI {
         document.querySelector('input[name="priority"]:checked').value = ''
     }
 
-    static displayAllTasks() {
-
-        const projects = Store.getProjects()
-
-        projects.forEach(project => {
-            const tasksList = document.getElementById('tasks-list')
-            project.Tasks.forEach(task => {
-                tasksList.innerHTML += `
-                    <li class="rounded p-3 pt-4 m-2 d-flex task fs-5 ${task.priority}" data-bs-toggle="collapse" href="#multiCollapseExample${task.id + 1}" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">
-                        <i class="fas fa-tasks text-dark p-2"></i>
-                        ${task.title} 
-                        <div class="ms-auto"> 
-                            <button class="btn btn-secondary">
-                                <i class="fas fa-pencil-alt"></i>
-                            </button>
-                            <button class="btn btn-danger ms-1">
-                                <i class="far fa-trash-alt"></i>
-                            </button> 
-                        </div>
-                    </li>
-                    <div class="row">
-                        <div class="col">
-                          <div class="collapse multi-collapse" id="multiCollapseExample${task.id + 1}">
-                            <div class="card card-body description p-4">
-                              ${task.description}
-                            </div>
-                          </div>
-                        </div>
-                    </div>`
-            })
-        })
-    }
-
-    static addTaskToList(projectID) {
-
-        const projects = Store.getProjects()
-
-        projects.forEach(project => {
-            if (project.id == projectID) {
-                project.Tasks.forEach(task => {
-
-                });
-            }
-        });
-    }
 
     static deleteProject(el) {
         if (el.classList.contains('delete-project')) {
